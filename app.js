@@ -8,19 +8,22 @@ const app = express();
 app.use(bodyParser.json());
 const allowedOrigins = ['http://localhost:5173', 'https://bookyourticketguvi.netlify.app/']
 app.use(
-    cors({
-      origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error('Not allowed by CORS'));
-        }
-      },
-      credentials: true, // Ensure cookies are sent
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
-    })
-  );
+  cors({
+    origin: function (origin, callback) {
+      console.log("Origin of request:", origin); // Log the origin for debugging
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.error("Blocked by CORS: ", origin);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  })
+);
+
 // app.use(cors());
 
 app.use(express.json());
