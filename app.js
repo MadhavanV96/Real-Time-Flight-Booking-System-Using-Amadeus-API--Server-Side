@@ -10,7 +10,7 @@ const allowedOrigins = ['http://localhost:5173', 'https://bookyourticketguvi.net
 app.use(
   cors({
     origin: function (origin, callback) {
-      console.log("Origin of request:", origin); // Log the origin for debugging
+      // Allow requests with no origin (e.g., Postman, cURL, same-origin requests)
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -23,6 +23,7 @@ app.use(
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
   })
 );
+
 
 // app.use(cors());
 
