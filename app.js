@@ -5,7 +5,7 @@ const cookieParser=require('cookie-parser');
 const authRouter = require('./Routes/authRouter');
 
 const app = express();
-const allowedOrigins = ['http://localhost:5173']
+const allowedOrigins = ['http://localhost:5173', 'https://bookyourticketguvi.netlify.app/']
 app.use(
     cors({
       origin: function (origin, callback) {
