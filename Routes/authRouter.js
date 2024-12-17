@@ -1,15 +1,11 @@
 const express= require('express');
 const authController = require('../Controller/authController');
 const auth = require('../utils/auth');
-// const auth = require('../Utils/auth');
-// const authController = require('../Controller/authController');
-// const auth = require('../utils/auth');
+
 
 const authRouter = express.Router();
 
-//Public Routes
 
-// authRouter.post('/flights', auth.checkAmadeusToken, authController.searchFlightOffers);
 authRouter.post('/flights', authController.searchFlightOffers);
 authRouter.post('/userRegister', authController.userRegister);
 authRouter.post('/login',authController.login);
