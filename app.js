@@ -6,7 +6,7 @@ const authRouter = require('./Routes/authRouter');
 
 const app = express();
 app.use(bodyParser.json());
-const allowedOrigins = ['http://localhost:5173', 'https://bookyourticketguvi.netlify.app/']
+const allowedOrigins = ['http://localhost:5173', 'https://bookyourticketguvi.netlify.app']
 app.use(
   cors({
     origin: function (origin, callback) {
