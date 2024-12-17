@@ -3,7 +3,7 @@ const User = require('../Model/userModel');
 const Customer = require('../Model/customerModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-// const auth = require('../utils/auth');
+
 const nodemailer = require('nodemailer');
 const Razorpay=require('razorpay');
 require('dotenv').config();
